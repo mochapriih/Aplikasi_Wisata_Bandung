@@ -1,0 +1,70 @@
+1. taman hutan raya, Bandung, Jl. Ir. H. Juanda No.99, Ciburial, Kec. Cimenyan, Bandung.
+2. monumen , bandung, Ir. H. Djuanda
+3. Saung Angklung Mang Udjo, bandung, Jl. Padasuka No.118, Pasirlayung, Kec. Cibeunying Kidul, Kota Bandung.
+4. Museum gedung sate, bandung, Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung.
+5. Trans Studio Bandung , bandung, Jl. Gatot Subroto No. 289, Cibangkong, Kec. Batununggal, Kota Bandung.
+6. Museum Geologi Bandung, bandung, Jl. Diponegoro No. 57, Cihaur Geulis, Kec. Cibeunying Kaler, Bandung, Jawa Barat.
+7. Gunung Tangkuban Perahu, lembang ,Cikahuripan, Lembang, Kab. Bandung Barat.
+8. Kawah Putih, ciwidey, Sugihmukti, Kec. Pasirjambu, Bandung.
+9. Ranca Upas, kabupaten bandung, Jl. Raya Ciwidey – Patengan No.KM. 11, Patengan, Kec. Rancabali, Kab. Bandung.
+10. Ciwidey Valley Resort, ciwidey, Jl. Barutunggul KM. 17, Ciwidey, Alamendah, Kec. Rancabali, Kab. Bandung.
+11. Tebing Keraton, kabupaten bandung barat, Ciburial, Kec. Cimenyan, Kab. Bandung Barat.
+12. Taman Maribaya,kabupaten bandung barat,  Langensari, Lembang, Kab. Bandung Barat.
+13. Farm House, lembang , Jl. Raya Lembang No. 108, Gudangkahuripan, Lembang, Kab. Bandung Barat, Jawa Barat.
+14. Observatorium Boscha, lembang, Jl. Peneropongan Bintang No. 45, Kec. Lembang, Kab. Bandung Barat.
+15. Lereng Anteng Panoramic Coffee, kabupaten bandung , Kampung Pagermaneuh, RT. 03/07, Pagerwangi, Lembang, Kabupaten Bandung
+
+
+1.-6.856437 , 107.632667
+2.-6.893411, 107.618530
+3.-6.898021, 107.654954
+4.,-6.902502, 107.618810
+5.,-6.925542, 107.637005
+6.,-6.900684, 107.621455
+7.,-6.759663, 107.616180
+8.,-7.166229, 107.402118
+9.,-7.138140, 107.392249
+10.,-7.134669, 107.415940
+11.,-6.833813, 107.663626
+12.,-6.828944, 107.688036
+13.,-6.832929, 107.605711
+14.,-6.824610, 107.617111
+15. ,-6.842397, 107.623084
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.search, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        searchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    Log.i("onQueryTextChange", newText);
+
+                    return true;
+                }
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    Log.i("onQueryTextSubmit", query);
+
+                    return true;
+                }
+            };
+            searchView.setOnQueryTextListener(queryTextListener);
+        }
+        super.onCreateOptionsMenu(menu, inflater);
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                // Not implemented here
+                return false;
+            default:
+                break;
+        }
+        searchView.setOnQueryTextListener(queryTextListener);
+        return super.onOptionsItemSelected(item);
+    }
